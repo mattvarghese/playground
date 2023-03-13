@@ -1,0 +1,17 @@
+{
+  "name": "bonus-example",
+  "version": "1.0.0",
+  "description": "reading from a time-server",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt | Varghese Mathew",
+  "license": "ISC",
+  "dependencies": {
+    "@types/request": "^2.48.8",
+    "request": "^2.88.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
