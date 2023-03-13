@@ -4,7 +4,7 @@
   "description": "reading from a time-server",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node server.ts"
   },
   "author": "Matt | Varghese Mathew",
   "license": "ISC",
