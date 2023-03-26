@@ -15,7 +15,7 @@ async function startServer() {
         res.statusCode = 200;
         res.end('hello world');
     })
-        // Like with IIS, it doesn't seem to work if we use
+        // Like with Visual Studio IISExpress, it doesn't seem to work if we use
         // prots other than 443XX 
         .listen(44301, () => {
             console.log('Server started');
