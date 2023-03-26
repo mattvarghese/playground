@@ -4,7 +4,8 @@
   "description": "Chapter 2 of Modern Full Stack Development",
   "main": "main.ts",
   "scripts": {
-    "start": "ts-node main.ts"
+    "main": "ts-node main.ts",
+    "https": "ts-node https.ts"
   },
   "author": "Matt | Varghese Mathew",
   "license": "UNLICENSED",
