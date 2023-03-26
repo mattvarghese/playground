@@ -4,22 +4,24 @@
 
 import * as https from 'https';
 import * as fs from 'fs/promises';
- 
- 
+
+
 async function startServer() {
-  const [key, cert] = await Promise.all([
-    fs.readFile('key.pem'),
-    fs.readFile('certificate.pem')
-  ]);
-  https.createServer({ key, cert }, (req, res) => {
-    res.statusCode = 200;
-    res.end('hello world');
-  })
-    .listen(44301, () => {
-      console.log('Server started');
-    });
+    const [key, cert] = await Promise.all([
+        fs.readFile('key.pem'),
+        fs.readFile('certificate.pem')
+    ]);
+    https.createServer({ key, cert }, (req, res) => {
+        res.statusCode = 200;
+        res.end('hello world');
+    })
+        // Like with IIS, it doesn't seem to work if we use
+        // prots other than 443XX 
+        .listen(44301, () => {
+            console.log('Server started');
+        });
 }
- 
+
 startServer();
 
 // Navigate to https://localhost:44301/
