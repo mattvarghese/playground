@@ -2,8 +2,8 @@
 //    openssl req -x509 -newkey rsa:4096 -keyout key.pem -out certificate.pem -days 365 -nodes
 // See: https://wanago.io/2019/04/01/node-js-typescript-8-implementing-https-with-our-own-openssl-certificate/
 
-import * as https from 'https';
-import * as fs from 'fs/promises';
+import https from 'https';
+import fs from 'fs/promises';
 
 
 function readWolrdTime(): Promise<string> {
@@ -42,7 +42,7 @@ async function startServer() {
         res.statusCode = 200;
         const jsonString = await readWolrdTime();
         const jsonObj = JSON.parse(jsonString);
-        res.end(JSON.stringify(jsonObj,null,2));
+        res.end(JSON.stringify(jsonObj, null, 2));
     })
         // Like with Visual Studio IISExpress, it doesn't seem to work if we use
         // prots other than 443XX 
