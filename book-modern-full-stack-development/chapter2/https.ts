@@ -6,14 +6,38 @@ import * as https from 'https';
 import * as fs from 'fs/promises';
 
 
+function readWolrdTime(): Promise<string> {
+    const requestOptions: https.RequestOptions = {
+        hostname: "worldtimeapi.org",
+        port: 443,
+        path: "/api/timezone/America/Chicago",
+        method: "GET"
+    };
+    return new Promise<string>((resolve) => {
+        let responseString = "";
+        const httpsRequest = https.request(
+            requestOptions,
+            (res) => {
+                res.on("data", (chunk) => {
+                    responseString += chunk;
+                });
+                res.on("end", () => {
+                    resolve(responseString);
+                });
+            }
+        );
+        httpsRequest.end();
+    })
+}
+
 async function startServer() {
     const [key, cert] = await Promise.all([
         fs.readFile('key.pem'),
         fs.readFile('certificate.pem')
     ]);
-    https.createServer({ key, cert }, (req, res) => {
+    https.createServer({ key, cert }, async (req, res) => {
         res.statusCode = 200;
-        res.end('hello world');
+        res.end(await readWolrdTime());
     })
         // Like with Visual Studio IISExpress, it doesn't seem to work if we use
         // prots other than 443XX 
