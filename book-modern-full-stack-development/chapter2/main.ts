@@ -63,6 +63,8 @@ function pathParsingExampe() {
 }
 
 function processExample() {
+    // Process is the only module that doesn't need to be imported (??)
+    // Actually console module also doesn't need to be imported
     console.log("\nEnvironment variables:");
     console.log(JSON.stringify(process.env, null, 2));
 }

@@ -6,6 +6,7 @@ import https from 'https';
 import fs from 'fs/promises';
 import url from 'url';
 import querystring from 'querystring';
+import util from 'util';
 
 function readWolrdTime(zone: string): Promise<string> {
     if (zone == "") zone = "Chicago";
@@ -42,9 +43,13 @@ async function startServer() {
     ]);
     https.createServer({ key, cert }, async (req, res) => {
         const parsedURL = url.parse(req.url as string, true);
+        // Note that req.url doesn't have protocol, hostname etc. in it
+        // So trying to use this to create a url.URL object crashes
         console.log("\nURL: ", req.url);
-        console.log("\nParsed URL: " + JSON.stringify(parsedURL,null,2));
-        console.log("\nHeaders: \n" + JSON.stringify(req.headers,null,2))
+        console.log("\nParsed URL: " + JSON.stringify(parsedURL, null, 2));
+        console.log("\nHeaders: \n" + JSON.stringify(req.headers, null, 2));
+        console.log("\nHeaders using inspect: \n" + util.inspect(req.headers, true, null, true));
+        // console.log("\nHeaders using inspect: \n" + JSON.stringify(util.inspect(req.headers, true, null, true)), null, 2);
         const timeZone: string = parsedURL.query.timezone as string ?? "";
         res.statusCode = 200;
         const jsonString = await readWolrdTime(timeZone);
