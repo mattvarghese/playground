@@ -37,7 +37,9 @@ async function startServer() {
     ]);
     https.createServer({ key, cert }, async (req, res) => {
         res.statusCode = 200;
-        res.end(await readWolrdTime());
+        const jsonString = await readWolrdTime();
+        const jsonObj = JSON.parse(jsonString);
+        res.end(JSON.stringify(jsonObj,null,2));
     })
         // Like with Visual Studio IISExpress, it doesn't seem to work if we use
         // prots other than 443XX 
