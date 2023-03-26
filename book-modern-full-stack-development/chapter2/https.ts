@@ -26,6 +26,9 @@ function readWolrdTime(): Promise<string> {
                 });
             }
         );
+        // If you were using another method such as POST, you can do
+        //     httpsRequest.write("string"); 
+        // etc. to add data to the request body
         httpsRequest.end();
     })
 }
