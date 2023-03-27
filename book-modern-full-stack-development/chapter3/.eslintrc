@@ -1,5 +1,4 @@
 // Copyright (C) 2022 Matt Varghese
-
 {
     /* NOTE: you can use 
      *           // eslint-disable-line
@@ -13,11 +12,22 @@
         "sourceType": "module"
     },
     "plugins": [
+        "react",
         "@typescript-eslint"
     ],
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended"
-    ]
+    ],
+    "rules": {
+        // Ref: https://carldesouza.com/configuring-eslint-semi-colons-rule/
+        //      https://eslint.org/docs/latest/rules/semi
+        // "semi": [2,"always"],
+        // Ref: https://stackoverflow.com/questions/58474874/eslint-demands-semicolon-and-wants-it-removed-at-the-same-time
+        "@typescript-eslint/semi": ["error", "always"],
+        "no-unexpected-multiline": "error",
+        // Ref: https://typescript-eslint.io/rules/member-delimiter-style/
+        "@typescript-eslint/member-delimiter-style": "error"
+    }
 }
