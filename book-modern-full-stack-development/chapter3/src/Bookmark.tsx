@@ -22,10 +22,17 @@ class Bookmark extends React.Component<IProps, IState> {
         this.state = { title: props.title };
 
         // Ref: https://stackoverflow.com/questions/70634283/react-typescript-uncaught-typeerror-this-is-undefined
-        this.buttonOnClickEvent = this.buttonOnClickEvent.bind(this);
+        // when you define your function as NOT an arrow function you generally need to bind it
+        // this.buttonOnClickEvent = this.buttonOnClickEvent.bind(this);
     }
 
-    private buttonOnClickEvent(): void {
+    /*private buttonOnClickEvent(): void {
+        const newState: IState = { title: this.state.title + "-CHANGED" };
+        this.setState(newState);
+    }*/
+
+    // Since buttonOnClickEvent is defined as an arrow function, we don't need to bind it.
+    private buttonOnClickEvent: React.MouseEventHandler<HTMLButtonElement> = () =>  {
         const newState: IState = { title: this.state.title + "-CHANGED" };
         this.setState(newState);
     }
