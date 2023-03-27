@@ -8,7 +8,7 @@
   "description": "Matt Varghese's Minimal TypeScript React Project Template",
   "main": "index.tsx",
   "scripts": {
-    "test": "npm run build && jest",
+    "test": "npm run build && jest --passWithNoTests",
     "start": "npm install && webpack serve --mode development --hot --open",
     "build": "npm install && webpack --config webpack.config.js --mode production",
     "lint": "npm run build && eslint \"src/**/*.{ts,tsx}\"",
