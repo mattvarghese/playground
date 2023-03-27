@@ -1,0 +1,23 @@
+// Copyright (C) 2022 Matt Varghese
+
+{
+    /* NOTE: you can use 
+     *           // eslint-disable-line
+     *       or  // eslint-disable-next-line  
+     *       comments to suppress false positives / errors we don't care about
+     */
+
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ]
+}

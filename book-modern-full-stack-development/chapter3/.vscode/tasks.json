@@ -1,0 +1,73 @@
+// Copyright (C) 2022 Varghese Mathew (Matt)
+
+{
+	// Reference: https://code.visualstudio.com/docs/editor/tasks
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"problemMatcher": [],
+			"label": "npm: install",
+			"detail": "Run the npm install script",
+			"presentation": {
+				"close": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "serve",
+			"problemMatcher": [],
+			"label": "npm: serve",
+			"detail": "Run the npm serve script",
+			"presentation": {
+				"close": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "clean",
+			"problemMatcher": [],
+			"label": "npm: clean",
+			"detail": "Run the npm clean script",
+			"presentation": {
+				"close": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "Run the npm build script",
+			"presentation": {
+				"close": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "start",
+			"problemMatcher": [],
+			"label": "npm: start",
+			"detail": "Run the npm start script",
+			"presentation": {
+				"close": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"group": "test",
+			"problemMatcher": [],
+			"label": "npm: test",
+			"detail": "Run the npm test script",
+			"presentation": {
+				"close": true
+			}
+		}
+	]
+}
