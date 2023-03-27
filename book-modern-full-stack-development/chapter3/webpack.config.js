@@ -37,6 +37,12 @@ var config = {
                 use: ["style-loader", "css-loader"],
             },
             {
+                // Ref: https://stackoverflow.com/questions/67659204/you-may-need-an-appropriate-loader-to-handle-this-file-type-currently-no-loade
+                // Ref: https://stackoverflow.com/questions/47447199/module-not-found-error-cant-resolve-sass-loader
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader", "sass-loader"],
+            },
+            {
                 test: /\.png|svg|jpg|gif$/,
                 use: ["file-loader"],
             },
