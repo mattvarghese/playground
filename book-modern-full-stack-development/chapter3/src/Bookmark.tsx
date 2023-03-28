@@ -35,6 +35,8 @@ class Bookmark extends React.Component<IProps, IState> {
     */
 
     // Since buttonOnClickEvent is defined as an arrow function, we don't need to bind it.
+    // See https://dmitripavlutin.com/differences-between-arrow-and-regular-functions/ for
+    // differences between regular and arrow functions.
     private buttonOnClickEvent: React.MouseEventHandler<HTMLButtonElement> = () =>  {
         const newState: IState = { title: this.state.title + "-CHANGED" };
         this.setState(newState);
@@ -43,7 +45,7 @@ class Bookmark extends React.Component<IProps, IState> {
     public override render(): React.ReactNode {
         return (
             <li>
-                <h2>{this.state.title}</h2>
+                <h2 className="bookmarkTitle">{this.state.title}</h2>
                 <a href={this.props.href}>{this.props.description}</a>
                 <button onClick={this.buttonOnClickEvent}>Change Title</button>
             </li>
