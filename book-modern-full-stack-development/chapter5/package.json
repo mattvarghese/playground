@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm install && tsc --sourceMap app.ts",
-    "clean": "rm -rf app.js package-lock.json node_modules"
+    "clean": "rm -rf app.js app.js.map package-lock.json node_modules"
   },
   "author": "Matt | Varghese Mathew",
   "license": "ISC",
