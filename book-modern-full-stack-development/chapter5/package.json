@@ -1,0 +1,16 @@
+{
+  "name": "chapter5-typescript",
+  "version": "1.0.0",
+  "description": "Modern Full Stack Development, Chapter 5 work",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc app.ts",
+    "clean": "rm -rf app.js package-lock.json node_modules"
+  },
+  "author": "Matt | Varghese Mathew",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.3.3"
+  }
+}
